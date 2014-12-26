@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('myApp', [])
+  angular.module('myApp')
     .controller('SampleController', SampleController);
 
   function SampleController($scope) {

@@ -5,7 +5,7 @@ Even with AngularJS providing us a pretty testable way of work, we still need so
 
 ## Table of contents
 
-- [Controllers](https://github.com/cironunes/angular-testing-recipes/blob/master/src/controller.js)
+- [Controllers](https://github.com/cironunes/angular-testing-recipes/tree/master/controller)
 - Services
 - Filters
 - Directives
