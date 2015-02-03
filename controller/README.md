@@ -4,8 +4,8 @@
 ## Table of contents
 
 - [Boilerplate](#boilerplate)
-- [Expose properties](#expose-properties)
-- [Expose methods](#expose-methods)
+- [Exposed properties](#expose-properties)
+- [Exposed methods](#expose-methods)
 - [Watchers](#watchers)
 - [$destroy](#$destroy)
 - $emit
@@ -46,9 +46,9 @@ describe('SampleController', function() {
 });
 ```
 
-## Expose properties
+## Exposed properties
 
-## Expose methods
+## Exposed methods
 
 ## Watchers
 
