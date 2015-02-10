@@ -1,3 +1,0 @@
-# Jquery Events
-
-## In construction
