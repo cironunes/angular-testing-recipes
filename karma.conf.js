@@ -20,9 +20,11 @@ module.exports = function(config) {
 
       'app.js',
 
-      'controller/controller.js',
+      'controllers/controllers.js',
+      'controllers/controllers.spec.js',
 
-      'controller/controller.spec.js'
+      'services/services.js',
+      'services/services.spec.js'
     ],
 
 
