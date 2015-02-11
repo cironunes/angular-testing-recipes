@@ -27,7 +27,10 @@ module.exports = function(config) {
       'services/services.spec.js',
 
       'directives/directives.js',
-      'directives/directives.spec.js'
+      'directives/directives.spec.js',
+
+      'decorators/decorators.js',
+      'decorators/decorators.spec.js'
     ],
 
 
