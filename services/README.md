@@ -30,4 +30,25 @@ describe('SampleService', function() {
 });
 ```
 
+## Exposed properties
+
+...
+
+## Exposed methods
+
+...
+
+## Methods from other services
+
+...
+
+
+## $http
+
+...
+
+## Promises
+
+...
+
 
