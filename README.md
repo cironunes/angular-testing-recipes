@@ -10,4 +10,4 @@ Even with AngularJS providing us a pretty testable way of work, we still need so
 - [Services](https://github.com/cironunes/angular-testing-recipes/tree/master/services)
 - [Decorators](https://github.com/cironunes/angular-testing-recipes/tree/master/decorators)
 - [Directives](https://github.com/cironunes/angular-testing-recipes/tree/master/directives)
-- [E2E](https://github.com/cironunes/angular-testing-recipes/tree/master/protractor)
+- [E2E](https://github.com/cironunes/angular-testing-recipes/tree/master/E2E)
