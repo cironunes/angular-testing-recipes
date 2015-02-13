@@ -5,11 +5,12 @@
     .factory('sampleService', SampleService)
     .factory('dummyService', DummyService);
 
-  function SampleService(dummyService) {
+  function SampleService($http, dummyService) {
     var service = {
       foo: 'bar',
       bar: bar,
-      baz: baz
+      baz: baz,
+      getData: getData
     };
 
     return service;
@@ -21,9 +22,16 @@
     function baz() {
       return dummyService.someMethod();
     }
+
+    function getData() {
+      return $http.get('/api/something')
+        .success(function(result) {
+          return result;
+        });
+    }
   }
 
-  SampleService.$inject = ['dummyService'];
+  SampleService.$inject = ['$http', 'dummyService'];
 
 
 
