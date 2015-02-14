@@ -5,12 +5,13 @@
     .factory('sampleService', SampleService)
     .factory('dummyService', DummyService);
 
-  function SampleService($http, dummyService) {
+  function SampleService($http, $q, dummyService) {
     var service = {
       foo: 'bar',
       bar: bar,
       baz: baz,
-      getData: getData
+      getData: getData,
+      getResults: getResults
     };
 
     return service;
@@ -29,9 +30,23 @@
           return result;
         });
     }
+
+    function getResults(index) {
+      var result = [1, 2, 3, 4, 5],
+          resultLen = result.length;
+      var deferred = $q.defer();
+
+      if (index >= 0 && index < result.length) {
+        deferred.resolve(result[index]);
+      }
+
+      deferred.reject('Do not exist');
+
+      return deferred.promise;
+    }
   }
 
-  SampleService.$inject = ['$http', 'dummyService'];
+  SampleService.$inject = ['$http', '$q', 'dummyService'];
 
 
 
