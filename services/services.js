@@ -28,6 +28,9 @@
       return $http.get('/api/something')
         .success(function(result) {
           return result;
+        })
+        .error(function(reason) {
+          return $q.reject(reason);
         });
     }
 

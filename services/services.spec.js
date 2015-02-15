@@ -36,16 +36,34 @@ describe('SampleService', function() {
     expect(dummyService.someMethod).toHaveBeenCalled();
   });
 
-  it('should bring data from the server', function() {
-    var data;
+  describe('#getData', function() {
+    describe('success:', function() {
+      it('should bring data from the server', function() {
+        var data;
 
-    $httpBackend.whenGET('/api/something').respond([1, 2, 3]);
-    sampleService.getData().then(function(response) {
-      data = response.data;
+        $httpBackend.whenGET('/api/something').respond([1, 2, 3]);
+        sampleService.getData().then(function(response) {
+          data = response.data;
+        });
+        $httpBackend.flush();
+
+        expect(data).toEqual([1, 2, 3]);
+      });
     });
-    $httpBackend.flush();
 
-    expect(data).toEqual([1, 2, 3]);
+    describe('error:', function() {
+      it('should return the error reason', function() {
+        var data;
+
+        $httpBackend.whenGET('/api/something').respond(401, 'Do not exist');
+        sampleService.getData().then(angular.noop, function(response) {
+          data = response.data;
+        });
+        $httpBackend.flush();
+
+        expect(data).toBe('Do not exist');
+      });
+    });
   });
 
   describe('#getResults', function() {
