@@ -33,4 +33,13 @@ describe('SampleController', function() {
     scope.$destroy();
     expect(ctrl.doSomething).toHaveBeenCalled();
   });
+
+  it('should emit an event', function() {
+    spyOn(scope, '$emit');
+
+    ctrl.sendMessage();
+    expect(scope.$emit).toHaveBeenCalledWith('sample:message', {
+      foo: 'bar'
+    });
+  });
 });

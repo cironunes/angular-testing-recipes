@@ -9,6 +9,7 @@
 
     vm.bar = bar;
     vm.doSomething = doSomething;
+    vm.sendMessage = sendMessage;
     vm.foo = 'bar';
 
     function bar() {
@@ -16,6 +17,10 @@
     }
 
     function doSomething() {}
+
+    function sendMessage() {
+      $scope.$emit('sample:message', { foo: 'bar' });
+    }
 
     $scope.$watch('baz', function(newVal) {
       if (newVal) {
