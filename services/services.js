@@ -11,7 +11,8 @@
       bar: bar,
       baz: baz,
       getData: getData,
-      getResults: getResults
+      getResults: getResults,
+      useAnotherMethod: useAnotherMethod
     };
 
     return service;
@@ -47,6 +48,12 @@
 
       return deferred.promise;
     }
+
+    function useAnotherMethod() {
+      return dummyService.anotherMethod().then(function(result) {
+        return result;
+      });
+    }
   }
 
   SampleService.$inject = ['$http', '$q', 'dummyService'];
@@ -54,9 +61,10 @@
 
 
 
-  function DummyService() {
+  function DummyService($q) {
     var service = {
-      someMethod: someMethod
+      someMethod: someMethod,
+      anotherMethod: anotherMethod
     };
 
     return service;
@@ -64,6 +72,16 @@
     function someMethod() {
       return 'bla';
     }
+
+    function anotherMethod() {
+      var deferred = $q.defer();
+
+      deferred.resolve([1, 2, 3]);
+
+      return deferred.promise;
+    }
   }
+
+  DummyService.$inject = ['$q'];
 
 }());
