@@ -42,4 +42,13 @@ describe('SampleController', function() {
       foo: 'bar'
     });
   });
+
+  it('should broadcast an event', function() {
+    spyOn(scope, '$broadcast');
+
+    ctrl.broadcastEvent();
+    expect(scope.$broadcast).toHaveBeenCalledWith('sample:broadcast', {
+      foo: 'bar'
+    });
+  });
 });
