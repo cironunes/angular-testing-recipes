@@ -24,7 +24,10 @@ module.exports = function(config) {
       'controllers/controllers.spec.js',
 
       'services/services.js',
-      'services/services.spec.js'
+      'services/services.spec.js',
+
+      'directives/directives.js',
+      'directives/directives.spec.js'
     ],
 
 
