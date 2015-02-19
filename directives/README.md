@@ -4,6 +4,7 @@
 
 - [Boilerplate](#boilerplate)
 - [Template](#template)
+- [DOM events](#dom-events)
 - [scope](#scope)
 - [isolateScope](#isolateScope)
 - [Transclusion](#transclusion)

@@ -13,10 +13,19 @@ describe('sampleDirective', function() {
     scope = $rootScope.$new();
 
     elem = angular.element('<div sample-directive></div>');
-    elem = $compile(elem)(scope);
+    $compile(elem)(scope);
   }));
 
   it('should have a template', function() {
     expect(elem[0].innerText).toBe('Hello world!');
+  });
+
+  describe('#DOM events', function() {
+    it('should log something when the user clicks in the element', function() {
+      spyOn(console, 'log');
+      elem.triggerHandler('click');
+
+      expect(console.log).toHaveBeenCalledWith('something');
+    });
   });
 });
