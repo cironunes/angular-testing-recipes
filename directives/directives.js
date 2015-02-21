@@ -4,7 +4,10 @@
   function SampleDirective() {
     var directive = {
       template: '<h1>Hello world!</h1>',
-      link: linkFn
+      link: linkFn,
+      scope: {
+        fooIsolate: '='
+      }
     };
 
     return directive;
@@ -14,7 +17,7 @@
         console.log('something');
       });
 
-      $scope.foo = 'lol';
+      $scope.foo = 'bar';
     }
   }
 

@@ -1,7 +1,7 @@
 describe('sampleDirective', function() {
   'use strict';
 
-  var elem, scope,
+  var elem, scope, isolateScope,
       $compile, $rootScope;
 
   beforeEach(module('myApp'));
@@ -12,8 +12,10 @@ describe('sampleDirective', function() {
 
     scope = $rootScope.$new();
 
-    elem = angular.element('<div sample-directive></div>');
+    elem = angular.element('<div sample-directive foo-isolate="bar"></div>');
     $compile(elem)(scope);
+
+    isolateScope = elem.isolateScope();
   }));
 
   it('should have a template', function() {
@@ -21,7 +23,14 @@ describe('sampleDirective', function() {
   });
 
   it('should expose a property to the $scope', function() {
-    expect(scope.foo).toBe('lol');
+    expect(isolateScope.foo).toBe('bar');
+  });
+
+  it('should expose a property to the isolateScope', function() {
+    scope.bar = 'baz';
+    scope.$digest();
+
+    expect(isolateScope.fooIsolate).toBe('baz');
   });
 
   describe('#DOM events', function() {
