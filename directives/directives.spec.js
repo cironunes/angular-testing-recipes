@@ -20,6 +20,10 @@ describe('sampleDirective', function() {
     expect(elem[0].innerText).toBe('Hello world!');
   });
 
+  it('should expose a property to the $scope', function() {
+    expect(scope.foo).toBe('lol');
+  });
+
   describe('#DOM events', function() {
     it('should log something when the user clicks in the element', function() {
       spyOn(console, 'log');

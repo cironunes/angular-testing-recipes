@@ -13,6 +13,8 @@
       $element.on('click', function() {
         console.log('something');
       });
+
+      $scope.foo = 'lol';
     }
   }
 
