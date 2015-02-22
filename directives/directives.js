@@ -3,11 +3,15 @@
 
   function SampleDirective() {
     var directive = {
-      template: '<h1>Hello world!</h1>',
+      template: '<div>' +
+      ' <h1>Hello world!</h1>' +
+      ' <div ng-transclude></div>' +
+      '</div>',
       link: linkFn,
       scope: {
         fooIsolate: '='
-      }
+      },
+      transclude: true
     };
 
     return directive;

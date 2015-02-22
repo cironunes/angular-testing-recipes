@@ -12,14 +12,18 @@ describe('sampleDirective', function() {
 
     scope = $rootScope.$new();
 
-    elem = angular.element('<div sample-directive foo-isolate="bar"></div>');
-    $compile(elem)(scope);
+    elem = angular.element(
+      '<div sample-directive foo-isolate="bar">' +
+      ' <h1>foo</h1>' +
+      '</div>'
+    );
 
+    $compile(elem)(scope);
     isolateScope = elem.isolateScope();
   }));
 
   it('should have a template', function() {
-    expect(elem[0].innerText).toBe('Hello world!');
+    expect(elem[0].innerText).toContain('Hello world!');
   });
 
   it('should expose a property to the $scope', function() {
@@ -39,6 +43,12 @@ describe('sampleDirective', function() {
       elem.triggerHandler('click');
 
       expect(console.log).toHaveBeenCalledWith('something');
+    });
+  });
+
+  describe('#transclusion', function() {
+    it('should transclude the DOM', function() {
+      expect(elem[0].innerHTML).toContain('<h1 class="ng-scope">foo</h1>');
     });
   });
 });
