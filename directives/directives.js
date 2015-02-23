@@ -5,11 +5,13 @@
     var directive = {
       template: '<div>' +
       ' <h1>Hello world!</h1>' +
+      ' <h2>{{ bar }}</h2>' +
       ' <div ng-transclude></div>' +
       '</div>',
       link: linkFn,
       scope: {
-        fooIsolate: '='
+        fooIsolate: '=',
+        bar: '@'
       },
       transclude: true
     };
