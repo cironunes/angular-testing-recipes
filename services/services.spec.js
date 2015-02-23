@@ -4,7 +4,6 @@ describe('SampleService', function() {
   var sampleService, dummyService,
       $httpBackend, $rootScope, $q;
 
-
   beforeEach(module('myApp'));
 
   beforeEach(inject(function(_$httpBackend_, _$rootScope_, _$q_, _sampleService_, _dummyService_) {
