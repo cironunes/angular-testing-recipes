@@ -4,21 +4,27 @@ describe('sampleDirective', function() {
   var elem, scope, isolateScope,
       $compile, $rootScope;
 
+  // load the application module
   beforeEach(module('myApp'));
 
+  // inject the services to be used before each of the specs
   beforeEach(inject(function(_$compile_, _$rootScope_) {
     $compile = _$compile_;
     $rootScope = _$rootScope_;
 
+    // create a new scope
     scope = $rootScope.$new();
 
+    // invoke the directive as an angular element
     elem = angular.element(
       '<div sample-directive foo-isolate="bar">' +
       ' <h1>foo</h1>' +
       '</div>'
     );
 
+    // compile it against the previously created scope
     $compile(elem)(scope);
+    // get the isolate scope of the directive
     isolateScope = elem.isolateScope();
   }));
 
