@@ -1,9 +1,4 @@
-// Karma configuration
-// Generated on Wed Dec 24 2014 12:08:42 GMT-0200 (BRST)
-
-module.exports = function(config) {
-  config.set({
-
+module.exports = {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
@@ -61,7 +56,6 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
 
 
     // enable / disable watching file and executing tests whenever any file changes
@@ -76,5 +70,4 @@ module.exports = function(config) {
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false
-  });
 };
