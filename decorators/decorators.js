@@ -25,7 +25,7 @@
         fn.apply(this, arguments);
         console.log(times);
         times += 1;
-      }
+      };
     }
     return $delegate;
   }
