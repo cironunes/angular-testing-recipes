@@ -1,0 +1,18 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "undef": true,
+  "devel": true,
+  "globals": {
+    "angular": true,
+    "describe": true,
+    "it": true,
+    "beforeEach": true,
+    "expect": true,
+    "spyOn": true,
+    "afterEach": true,
+    "inject": true,
+    "jasmine": true,
+    "module": true
+  }
+}
