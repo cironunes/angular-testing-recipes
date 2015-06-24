@@ -34,7 +34,7 @@ describe('SampleService', function() {
 
 To test public properties, all you need to do is access them directly from the `sampleService`:
 
-Test:
+> Test:
 
 ```js
 it('should expose a property', function() {
@@ -42,7 +42,7 @@ it('should expose a property', function() {
 });
 ```
 
-Code:
+> Code:
 
 ```js
 var service = {
