@@ -52,7 +52,31 @@ var service = {
 return service;
 ```
 
-## Exposed methods
+## Public methods
+
+To test public methods, all you need to do is call them directly from the `sampleService`:
+
+> Test:
+
+```js
+it('should have a method', function() {
+    expect(sampleService.foo()).toBe('bar');
+});
+```
+
+> Code:
+
+```js
+var service = {
+  foo: function() {
+    return 'bar';
+  }
+};
+
+return service;
+```
+
+
 
 ...
 
