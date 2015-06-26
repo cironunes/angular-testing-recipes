@@ -77,12 +77,44 @@ return service;
 ```
 
 
-
-...
-
 ## Methods from other services
 
-...
+First we need to inject the service to be tested into our tests:
+
+```js
+var sampleService, dummyService;
+
+beforeEach(inject(function(_sampleService_, _dummyService_) {
+  sampleService = _sampleService_;
+  dummyService = _dummyService_;
+}));
+```
+
+So we can make our expectation simple calling the `baz` method that calls the `dummyService.bar` method:
+
+```js
+it('should call the method `bar` of `sampleService`', function() {
+  spyOn(dummyService, 'bar'); // spies the `bar` method of the `dummyService`. Search for Jasmine Spies for more info
+  sampleService.baz();
+  
+  expect(dummyService.bar).toHaveBeenCalled();
+});
+```
+
+In the code we inject the `dummyService` inside the `sampleService` and call `dummyService.bar` in the `baz` method:
+
+```js
+.factory('sampleService', function(dummyService) {
+  var service = {
+    baz: function() {
+      dummyService.bar();
+    }
+  };
+  
+  return service;
+});
+
+```
 
 
 ## $http
