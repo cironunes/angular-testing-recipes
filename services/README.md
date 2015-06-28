@@ -7,7 +7,7 @@
 - [Public properties](#public-properties)
 - [Public methods](#public-methods)
 - [Methods from other services](#methods-from-other-services)
-- [$http]($http)
+- [$http](#$http)
 - [Promises](#promises)
 
 ## Boilerplate
@@ -119,7 +119,93 @@ In the code we inject the `dummyService` inside the `sampleService` and call `du
 
 ## $http
 
-...
+> NOTE: in this example we'll mock an HTTP GET call. The idea can be used to pretty much any other kind of HTTP request.
+
+We'll need the `$httpBackend` service from `angular-mocks`.
+
+```js
+var $httpBackend;
+
+beforeEach(inject(function(_$httpBackend_) {
+  $httpBackend = _$httpBackend_;
+}))
+```
+
+Now we'll use it to intercept the HTTP call and control how a fake server wil respond to it.
+
+> Test:
+
+```js
+it('should bring data from the server', function() {
+  var result;
+  
+  $httpBackend.whenGET('/api/something').respond([1, 2, 3]); // intercept GET /api/something and respond [1, 2, 3]
+  sampleService.getData().then(function(response) {
+    result = response.data;
+  });
+  $httpBackend.flush(); // flush the request to resolve the promise
+  
+  expect(result).toEqual([1, 2, 3]); // note that we use toEqual to match arrays as it's a non strict check
+});
+```
+
+> Code:
+
+```
+function sampleService($http) {
+  var service = {
+    getData: getData
+  };
+  
+  return service;
+  
+  function getData() {
+    return $http.get('/api/something')
+      .success(function(response) {
+        return response;
+      });
+  }
+}
+
+```
+
+We can also cover the error scenario:
+
+> Test:
+
+```js
+it('should return the error reason', function() {
+  var reason;
+  
+  $httpBackend.whenGET('/api/something').respond(401, 'Do not exist');
+  sampleService.getData().then(angular.noop, function(response) {
+    reason = response.data;
+  });
+  $httpBackend.flush();
+  
+  expect(reason).toBe('Do not exist');
+});
+```
+
+> Code:
+
+```
+function sampleService($http, $q) {
+  var service = {
+    getData: getData
+  };
+  
+  return service;
+  
+  function getData() {
+    return $http.get('/api/something')
+      .error(function(response) {
+        $q.reject(response);
+      });
+  }
+}
+```
+
 
 ## Promises
 
