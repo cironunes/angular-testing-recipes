@@ -5,7 +5,7 @@
 
 - [Boilerplate](#boilerplate)
 - [Public properties](#public-properties)
-- [Exposed methods](#expose-methods)
+- [public methods](#public-methods)
 - [Methods from other services](#methods-from-other-services)
 - [$http]($http)
 - [Promises](#promises)
