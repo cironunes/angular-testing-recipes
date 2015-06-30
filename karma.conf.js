@@ -29,7 +29,10 @@ module.exports = function(config) {
       'decorators/decorators.spec.js',
 
       'filters/filters.js',
-      'filters/filters.spec.js'
+      'filters/filters.spec.js',
+      
+      // Needed to load the partials into a new temporal module
+      'directives/*.html'
     ],
 
 
@@ -37,13 +40,20 @@ module.exports = function(config) {
     exclude: [
     ],
 
-
+    // plugin list
+    plugins: ['karma-jasmine','karma-phantomjs-launcher','karma-ng-html2js-preprocessor'],
+    
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+        'directives/*.html': ['ng-html2js']
     },
 
-
+    // Custom ngHtml2JSPreprocessor options
+    ngHtml2JsPreprocessor: {
+    	moduleName: 'myAppPartials' // Must match with the one used in the unit test specs
+    },
+    
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
