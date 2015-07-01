@@ -4,7 +4,7 @@
   "description": "angular-testing-recipes",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start karma.conf.js --browsers Chrome --single-run"
+    "test": "./node_modules/karma/bin/karma start karma.conf.js --browsers PhantomJS --single-run"
   },
   "repository": {
     "type": "git",
