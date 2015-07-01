@@ -24,13 +24,15 @@ module.exports = function(config) {
 
       'directives/directives.js',
       'directives/directives.spec.js',
+      'directives/directives_external_template.js',
+      'directives/directives_external_template.spec.js',
 
       'decorators/decorators.js',
       'decorators/decorators.spec.js',
 
       'filters/filters.js',
       'filters/filters.spec.js',
-      
+
       // Needed to load the partials into a new temporal module
       'directives/*.html'
     ],
@@ -42,7 +44,7 @@ module.exports = function(config) {
 
     // plugin list
     plugins: ['karma-jasmine','karma-phantomjs-launcher','karma-ng-html2js-preprocessor'],
-    
+
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
@@ -53,7 +55,7 @@ module.exports = function(config) {
     ngHtml2JsPreprocessor: {
     	moduleName: 'myAppPartials' // Must match with the one used in the unit test specs
     },
-    
+
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter

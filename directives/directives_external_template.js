@@ -1,13 +1,7 @@
 (function() {
-  'use strict';
-
-  function SampleDirective() {
+  function SampleDirectiveFromTemplateUrl() {
     var directive = {
-      template: '<div>' +
-      ' <h1>Hello world!</h1>' +
-      ' <h2>{{ bar }}</h2>' +
-      ' <div ng-transclude></div>' +
-      '</div>',
+      templateUrl: 'directives/directives.tpl.html',
       link: linkFn,
       scope: {
         fooIsolate: '=',
@@ -29,5 +23,5 @@
   }
 
   angular.module('myApp')
-    .directive('sampleDirective', SampleDirective);
+    .directive('sampleDirectiveFromTemplateUrl', SampleDirectiveFromTemplateUrl);
 }());
