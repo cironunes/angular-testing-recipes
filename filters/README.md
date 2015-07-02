@@ -34,7 +34,7 @@ describe('Filter: trim', function () {
 ## Best Practices
 
 
-### Doesn't use any special characters or "namespaces"
+### Don't use any special character or "namespaces"
 
 Check [this issue](https://github.com/angular/angular.js/issues/10110) in the angular.js repository for more info.
 
@@ -47,14 +47,15 @@ Let's consider the ```snakeCase``` filter which uses the ```trim``` filter inter
 ```javascript
 angular.module('myApp')
   .filter('snakeCase', function($filter) {
+    var $trim = $filter('trim');
+    
     return function(input) {
       if (input === null || input === undefined) {
         input = '';
       }
 
       // Using `trim` filter that already exist
-      var $trim = $filter('trim');
-      return $trim(input)
+    return $trim(input)
         .replace(/([a-z\d])([A-Z]+)/g, '$1_$2')
         .replace(/[-\s]+/g, '_')
         .toLowerCase();
@@ -62,8 +63,7 @@ angular.module('myApp')
   }]);
 ```
 
-The unit tests for ```snakeCase``` filter will follow the same strategy as the ```trim``` filter, without worrying about 
-each other. They must be all separated even one using the other as a dependency. 
+The unit tests for the ```snakeCase``` filter will follow the same strategy as the ```trim```. Note that it doesn't worry about it's dependencies and they must be completely separated even one using the other as a dependency. 
 
 ```javascript
 describe('snakeCase', function () {
