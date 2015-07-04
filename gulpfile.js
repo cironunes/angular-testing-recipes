@@ -6,16 +6,21 @@ var _ = require('lodash');
 var karma = require('karma').server;
 var karmaConf = require('./karma.conf.js');
 
-gulp.task('test', function(done) {
-  karma.start(_.assign({}, karmaConf, { singleRun: true }), done);
+gulp.task('test', function (done) {
+  karma.start({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done);
 });
 
-gulp.task('tdd', function(done) {
-  karma.start(karmaConf, done);
+gulp.task('tdd', function (done) {
+  karma.start({
+    configFile: __dirname + '/karma.conf.js'
+  }, done);
 });
 
 gulp.task('jshint', function() {
-  return gulp.src('./{controllers,decorators,directives,filters,services}/*.js')
+  return gulp.src('./{controllers,decorators,directives,E2E,filters,services}/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter(stylish))
     .pipe(jshint.reporter('fail'));

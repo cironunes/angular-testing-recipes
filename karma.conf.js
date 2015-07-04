@@ -43,12 +43,13 @@ module.exports = function(config) {
     ],
 
     // plugin list
-    plugins: ['karma-jasmine','karma-phantomjs-launcher','karma-ng-html2js-preprocessor'],
+    plugins: ['karma-jasmine', 'karma-phantomjs-launcher', 'karma-ng-html2js-preprocessor', 'karma-coverage'],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        'directives/*.html': ['ng-html2js']
+        'directives/*.html': ['ng-html2js'],
+        './{controllers,decorators,directives,E2E,filters,services}/*.js': ['coverage']
     },
 
     // Custom ngHtml2JSPreprocessor options
