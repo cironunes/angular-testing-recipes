@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/cironunes/angular-testing-recipes.svg?branch=master)](https://travis-ci.org/cironunes/angular-testing-recipes)
 > Unit and e2e testing recipes for AngularJS
 
-Even with AngularJS providing us a pretty testable way of work, we still need some boilerplate code (and some gotchas) to be able to exercise our code properly in our tests. This repository is a reference guide to help you to test your code.
+Even with AngularJS providing us a pretty testable way of work, we still need some boilerplate code (and some gotchas) to be able to exercise our code properly in our tests. **This repository is a reference guide to help you to test your code.**
 
 ## Setup
 
