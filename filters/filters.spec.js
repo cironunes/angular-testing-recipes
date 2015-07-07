@@ -9,12 +9,12 @@ describe('sampleFilter', function () {
     trim = $filter('trim');
   }));
 
-  it('should remove the whitespaces in the start and the end of a text', function () {
+  it('should remove the whitespaces at the start and at the end of a given text', function () {
     var text = '    angularjs  ';
     expect(trim(text)).toBe('angularjs');
   });
 
-  it('should return an string empty if the value is equal `undefined` or `null`', function () {
+  it('should return an empty string if the value is equal `undefined` or `null`', function () {
     expect(trim(undefined)).toBe('');
     expect(trim(null)).toBe('');
   });

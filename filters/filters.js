@@ -8,12 +8,8 @@
         if (input === undefined || input === null) {
           input = '';
         }
-        str = String(input);
-        if (String.prototype.trim !== null) {
-          return str.trim();
-        } else {
-          return str.replace(/^\s+|\s+$/gm, '');
-        }
+        str = input + '';
+        return str.trim();
       };
     });
 }());
