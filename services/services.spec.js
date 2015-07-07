@@ -105,3 +105,32 @@ describe('SampleService', function() {
     });
   });
 });
+
+describe('DummyService', function() {
+  var service,
+      $rootScope;
+
+  beforeEach(module('myApp'));
+
+  beforeEach(inject(function(_$rootScope_, _dummyService_) {
+    $rootScope = _$rootScope_;
+    service = _dummyService_;
+  }));
+
+  describe('#someMethod', function() {
+    it('should return `bla`', function() {
+      expect(service.someMethod()).toBe('bla');
+    });
+  });
+
+  describe('#anotherMethod', function() {
+    it('should return `[1,2,3]` in a promise', function() {
+      var resultSpy = jasmine.createSpy('resultSpy');
+
+      service.anotherMethod().then(resultSpy);
+      $rootScope.$apply();
+
+      expect(resultSpy).toHaveBeenCalledWith([1,2,3]);
+    });
+  });
+});

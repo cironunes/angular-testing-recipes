@@ -59,8 +59,6 @@
   SampleService.$inject = ['$http', '$q', 'dummyService'];
 
 
-
-
   function DummyService($q) {
     var service = {
       someMethod: someMethod,
@@ -83,5 +81,4 @@
   }
 
   DummyService.$inject = ['$q'];
-
 }());
