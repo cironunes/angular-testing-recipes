@@ -14,8 +14,10 @@
 
 Before start we need to initialize the service and mock it's dependencies in our tests:
 
+> Test:
+
 ```js
-describe('SampleService', function() {
+describe('sampleService', function() {
   'use strict';
 
   var sampleService;
@@ -29,6 +31,14 @@ describe('SampleService', function() {
   ...
 });
 ```
+
+> Code:
+
+```js
+angular.module('myApp')
+  .factory('sampleService', function() { ... });
+```
+
 
 ## Public properties
 
