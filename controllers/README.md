@@ -39,7 +39,7 @@ describe('SampleController', function() {
         // load the SampleController mocking the $scope to the one created before
         ctrl = _$controller_('SampleController', {
             $scope: scope
-        };
+        });
     }));
 
     ...
